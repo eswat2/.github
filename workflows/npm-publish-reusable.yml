@@ -23,13 +23,11 @@ on:
       publish-command:
         required: false
         type: string
-        default: 'npm publish --access public'
-    secrets:
-      NPM_PUBLISH_TOKEN:
-        required: true
+        default: 'npm publish --access public --provenance'  # optional but recommended
 
 permissions:
   contents: read
+  id-token: write
 
 jobs:
   publish:
@@ -67,6 +65,4 @@ jobs:
         run: pnpm card
 
       - name: Publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_PUBLISH_TOKEN }}
         run: ${{ inputs.publish-command }}
