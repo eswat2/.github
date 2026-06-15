@@ -39,7 +39,7 @@ for repo in "${REPOS[@]}"; do
   IFS=$'\t' read -r conclusion status title <<< "$raw"
 
   if [[ ${#title} -gt 25 ]]; then
-    title_short="${title:0:25}..."
+    title_short="${title:0:23}..."
   else
     title_short="$title"
   fi
