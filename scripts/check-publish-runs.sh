@@ -21,7 +21,7 @@ REPOS=(
 log::section "Publish Workflows"
 printf '\n'
 printf "${TERM__BOLD}%25s    %-10s %s${TERM__RESET}\n" "REPO" "RESULT" "TITLE"
-printf '%s%s\n' "${TERM__HRULE}" "${TERM__HRULE:0:28}"
+printf '%s%s\n' "${TERM__HRULE}" "${TERM__HRULE:0:23}"
 
 for repo in "${REPOS[@]}"; do
   raw=$(gh run list \
