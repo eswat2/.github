@@ -20,7 +20,7 @@ REPOS=(
 
 log::section "Publish Runs"
 printf '\n'
-printf "${TERM__BOLD}%-35s  %-11s %s${TERM__RESET}\n" "REPO" "RESULT" "TITLE"
+printf "${TERM__BOLD}%25s    %-10s %s${TERM__RESET}\n" "REPO" "RESULT" "TITLE"
 printf '%s%s\n' "${TERM__HRULE}" "${TERM__HRULE:0:28}"
 
 for repo in "${REPOS[@]}"; do
@@ -38,8 +38,8 @@ for repo in "${REPOS[@]}"; do
 
   IFS=$'\t' read -r conclusion status title <<< "$raw"
 
-  if [[ ${#title} -gt 25 ]]; then
-    title_short="${title:0:23}..."
+  if [[ ${#title} -gt 35 ]]; then
+    title_short="${title:0:31}..."
   else
     title_short="$title"
   fi
@@ -56,7 +56,7 @@ for repo in "${REPOS[@]}"; do
     icon=" "; color="${TERM__DIM}"; label="${conclusion:-$status}"
   fi
 
-  printf "%-35s  %s ${color}%-10s${TERM__RESET} %s\n" \
+  printf "%25s  %s ${color}%-10s${TERM__RESET} %s\n" \
     "$repo" "$icon" "$label" "$title_short"
 done
 
