@@ -48,6 +48,10 @@ jobs:
 - Configurable test/build/card steps
 - Works with both `main` and `master` default branches
 
+#### Usage notes
+
+See [Ionic Component Publish — Actions Usage Summary](docs/ionic-publish-actions-summary.md) for real-world timing data, active repo list, and Pro plan minute budget analysis.
+
 ## How to Use
 
 1. Reference the workflow using `uses: eswat2/.github/.github/workflows/...@main`
