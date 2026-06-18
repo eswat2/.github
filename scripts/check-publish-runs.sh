@@ -1,4 +1,11 @@
 #!/usr/bin/env bash
+# ---------------------------------------------------------------------
+# check the status of publish workflows ...
+
+set -o errexit
+set -o nounset
+set -o pipefail
+
 source "${HOME}/bin/utils/log.sh"
 
 OWNER="eswat2"

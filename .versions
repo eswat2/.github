@@ -1,18 +1,1 @@
-#!/usr/bin/env bash
-# ---------------------------------------------------------------------
-# check for publish workflows ...
-
-set -o errexit
-set -o nounset
-set -o pipefail
-
-source $HOME/bin/utils/log.sh
-
-log::section "publish.yml"
-
-cd $HOME/github
-
-for repo in $(ls */*/.github/workflows/publish.yml | cut -d "/" -f 2 )
-do
-  log::key_value ${repo} ": " true
-done
+scripts/list-publish-yaml.sh
