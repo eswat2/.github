@@ -8,28 +8,19 @@ set -o pipefail
 
 source "${HOME}/bin/utils/log.sh"
 
+# NOTE:  lpy generates this cache...
+CACHE=${HOME}/.pub-cache.json
+
 OWNER="eswat2"
-REPOS=(
-  "eswat2"
-  "eswat42"
-  "proto-tailwindcss-clrs"
-  "proto-tailwindcss-pxls"
-  "analog-clock-components"
-  "funnel-gfx-wc"
-  "proto-autos-wc"
-  "proto-icons-wc"
-  "proto-ikon-loader"
-  "proto-ikons-wc"
-  "proto-logo-wc"
-  "proto-sudoku-wc"
-  "proto-tinker-wc"
-)
 
 main() {
   log::section "Publish Workflows"
   log::blank
   printf "${TERM__BOLD}%25s    %-10s %s${TERM__RESET}\n" "REPO" "RESULT" "TITLE"
   # printf '%s%s\n' "${TERM__HRULE}" "${TERM__HRULE:0:23}"
+
+  # NOTE:  you need to strip the double quotes from the strings for bash...
+  REPOS=($(cat ${CACHE} | jq '.[]' | sed 's/"//g'))
 
   for repo in "${REPOS[@]}"; do
     raw=$(gh run list \
