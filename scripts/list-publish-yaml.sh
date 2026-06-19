@@ -50,7 +50,7 @@ main() {
       log::key_value ${repo} ": " true
     done
   else
-    log::output "cache -- ${CACHE}" blue    
+    log::output "cache -- ${CACHE}" blue
   fi
 
   jo -a ${DATA[*]} > ${CACHE}

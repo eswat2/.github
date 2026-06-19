@@ -14,6 +14,7 @@ CACHE=${HOME}/.pub-cache.json
 OWNER="eswat2"
 
 main() {
+  log::output "cache -- ${CACHE}" blue
   log::section "Publish Workflows"
   log::blank
   printf "${TERM__BOLD}%25s    %-10s %s${TERM__RESET}\n" "REPO" "RESULT" "TITLE"
